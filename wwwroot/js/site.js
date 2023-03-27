@@ -7,7 +7,15 @@
 $(document).ready(function () {
     // alert("test");
     var wrapper = $(".speakers"); //Input field wrapper
+
     var x = 1;
+    if ($("#speaker_count").val() != undefined) {
+        x = $("#speaker_count").val();
+        alert(x);
+    }
+
+    //var x = @{ ViewData["Speaker_Count"] };
+    //var x = 1;
     // remove speaker
     $(wrapper).on('click', '.remove_speaker', function (e) {
         e.preventDefault();

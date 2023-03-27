@@ -102,6 +102,7 @@ namespace SacramentPlanner.Controllers
 
             // https://www.tutorialsteacher.com/mvc/viewbag-in-asp.net-mvc
             ViewData["Speakers"] = speakers;
+            ViewData["Speaker_Count"] = speakers.Count + 1; // increase count to get correct index when adding new speakers
 
             return View(meeting);
         }
