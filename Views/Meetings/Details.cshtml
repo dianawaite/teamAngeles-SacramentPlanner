@@ -58,6 +58,19 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.ClosingHymn)
         </dd>
+        <dt class="col-sm-2">
+            Speakers
+        </dt>
+        <dd class="col-sm-10">
+            @{
+                int i = 1;
+                foreach (var item in ViewData["Speakers"] as IEnumerable<SacramentPlanner.Models.Speaker>)
+                {
+                    // https://stackoverflow.com/questions/24982032/foreach-on-viewdata-in-mvc-4-view
+                    @item.Name @: @item.Subject <br>
+                }
+            }
+        </dd>
     </dl>
 </div>
 <div>
