@@ -22,7 +22,7 @@ namespace SacramentPlanner.Controllers
         // GET: Meetings
         public async Task<IActionResult> Index()
         {
-              return _context.Meeting != null ? 
+            return _context.Meeting != null ? 
                           View(await _context.Meeting.ToListAsync()) :
                           Problem("Entity set 'SacramentPlannerContext.Meeting'  is null.");
         }
@@ -41,6 +41,14 @@ namespace SacramentPlanner.Controllers
             {
                 return NotFound();
             }
+
+            // get meeting speakers
+            var speakers = _context.Speaker
+                                       .Where(s => s.Meeting == id)
+                                       .ToList();
+
+            // https://www.tutorialsteacher.com/mvc/viewbag-in-asp.net-mvc
+            ViewData["Speakers"] = speakers;
 
             return View(meeting);
         }
@@ -153,6 +161,14 @@ namespace SacramentPlanner.Controllers
             {
                 return NotFound();
             }
+
+            // get meeting speakers
+            var speakers = _context.Speaker
+                                       .Where(s => s.Meeting == id)
+                                       .ToList();
+
+            // https://www.tutorialsteacher.com/mvc/viewbag-in-asp.net-mvc
+            ViewData["Speakers"] = speakers;
 
             return View(meeting);
         }
