@@ -16,6 +16,9 @@
                 @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Congregation)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.MeetingDate)
             </th>
             <th>
@@ -47,6 +50,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Congregation)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MeetingDate)

@@ -31,12 +31,19 @@ namespace SacramentPlanner.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClosingHymn")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ClosingPrayer")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Conducting")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Congregation")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("IntermediateHymn")
@@ -46,12 +53,15 @@ namespace SacramentPlanner.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("OpeningHymn")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("OpeningPrayer")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SacramentHymn")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -59,7 +69,7 @@ namespace SacramentPlanner.Migrations
                     b.ToTable("Meeting");
                 });
 
-            modelBuilder.Entity("SacramentPlanner.Models.Speakers", b =>
+            modelBuilder.Entity("SacramentPlanner.Models.Speaker", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -67,18 +77,20 @@ namespace SacramentPlanner.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("MeetingId")
+                    b.Property<int>("Meeting")
                         .HasColumnType("int");
 
-                    b.Property<string>("Speaker")
+                    b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Subject")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Speakers");
+                    b.ToTable("Speaker");
                 });
 #pragma warning restore 612, 618
         }

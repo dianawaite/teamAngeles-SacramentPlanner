@@ -64,7 +64,7 @@ namespace SacramentPlanner.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(IFormCollection collection, [Bind("Id,MeetingDate,Conducting,OpeningPrayer,ClosingPrayer,OpeningHymn,SacramentHymn,IntermediateHymn,ClosingHymn")] Meeting meeting)
+        public async Task<IActionResult> Create(IFormCollection collection, [Bind("Id,Congregation,MeetingDate,Conducting,OpeningPrayer,ClosingPrayer,OpeningHymn,SacramentHymn,IntermediateHymn,ClosingHymn")] Meeting meeting)
         {
             if (ModelState.IsValid)
             {
@@ -111,7 +111,7 @@ namespace SacramentPlanner.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, IFormCollection collection, [Bind("Id,MeetingDate,Conducting,OpeningPrayer,ClosingPrayer,OpeningHymn,SacramentHymn,IntermediateHymn,ClosingHymn")] Meeting meeting)
+        public async Task<IActionResult> Edit(int id, IFormCollection collection, [Bind("Id,Congregation,MeetingDate,Conducting,OpeningPrayer,ClosingPrayer,OpeningHymn,SacramentHymn,IntermediateHymn,ClosingHymn")] Meeting meeting)
         {
             if (id != meeting.Id)
             {

@@ -6,6 +6,8 @@ namespace SacramentPlanner.Models
     public class Meeting
     {
         public int Id { get; set; }
+        [Required]
+        public string? Congregation { get; set; }
         [DataType(DataType.Date)]
         public DateTime MeetingDate { get; set; }
         [Required]
