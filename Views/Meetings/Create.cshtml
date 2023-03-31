@@ -12,71 +12,87 @@
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="row">
         <div class="col-6">
-            Congregation
-            <div class="form-group">
+            <fieldset class="p-md-2" style="background-color:green">
+            <div class="form-group px-md-2">
                 <label asp-for="Congregation" class="control-label"></label>
                 <input asp-for="Congregation" class="form-control" />
                 <span asp-validation-for="Congregation" class="text-danger"></span>
             </div>
-            Meeting Time
-            <div class="form-group">
+            <div class="form-group px-md-2">
                 <label asp-for="MeetingDate" class="control-label"></label>
                 <input asp-for="MeetingDate" class="form-control" />
                 <span asp-validation-for="MeetingDate" class="text-danger"></span>
             </div>
-            Conducting
-            <div class="form-group">
+                <div class="form-group px-md-2 mb-3">
                 <label asp-for="Conducting" class="control-label"></label>
                 <input asp-for="Conducting" class="form-control" />
                 <span asp-validation-for="Conducting" class="text-danger"></span>
-            </div>            
-            Opening
-            <div class="form-group">
-                <label asp-for="OpeningHymn" class="control-label"></label>
-                <input asp-for="OpeningHymn" class="form-control" />
-                <span asp-validation-for="OpeningHymn" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="OpeningPrayer" class="control-label"></label>
-                <input asp-for="OpeningPrayer" class="form-control" />
-                <span asp-validation-for="OpeningPrayer" class="text-danger"></span>
-            </div>
+            </fieldset>
 
+            <br />
 
-            Closing
-            <div class="form-group">
-                <label asp-for="ClosingHymn" class="control-label"></label>
-                <input asp-for="ClosingHymn" class="form-control" />
-                <span asp-validation-for="ClosingHymn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClosingPrayer" class="control-label"></label>
-                <input asp-for="ClosingPrayer" class="form-control" />
-                <span asp-validation-for="ClosingPrayer" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="col-6">
-            Sacrament
-            <div class="form-group">
-                <label asp-for="SacramentHymn" class="control-label"></label>
-                <input asp-for="SacramentHymn" class="form-control" />
-                <span asp-validation-for="SacramentHymn" class="text-danger"></span>
-            </div>
-            Program
-            <div class="form-group speakers">
-                <div>
-                    <input id="add_speaker" type="submit" value="Add Speaker" class="btn btn-primary" />
+            <fieldset class="p-md-2" style="background-color:green">
+                <legend>Opening</legend>
+                <div class="form-group px-md-2">
+                    <label asp-for="OpeningHymn" class="control-label"></label>
+                    <input asp-for="OpeningHymn" class="form-control" />
+                    <span asp-validation-for="OpeningHymn" class="text-danger"></span>
                 </div>
-            </div>
-            <div class="form-group">
-                <label asp-for="IntermediateHymn" class="control-label"></label>
-                <input asp-for="IntermediateHymn" class="form-control" />
-                <span asp-validation-for="IntermediateHymn" class="text-danger"></span>
-            </div>
+                <div class="form-group px-md-2 mb-3">
+                    <label asp-for="OpeningPrayer" class="control-label"></label>
+                    <input asp-for="OpeningPrayer" class="form-control" />
+                    <span asp-validation-for="OpeningPrayer" class="text-danger"></span>
+                </div>
+            </fieldset>
+
+            <br />
+
+            <fieldset class="p-md-2" style="background-color:green">
+                <legend>Closing</legend>
+                <div class="form-group px-md-2">
+                    <label asp-for="ClosingHymn" class="control-label"></label>
+                    <input asp-for="ClosingHymn" class="form-control" />
+                    <span asp-validation-for="ClosingHymn" class="text-danger"></span>
+                </div>
+                <div class="form-group px-md-2 mb-3">
+                    <label asp-for="ClosingPrayer" class="control-label"></label>
+                    <input asp-for="ClosingPrayer" class="form-control" />
+                    <span asp-validation-for="ClosingPrayer" class="text-danger"></span>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="col-6">
+            <fieldset class="px-md-2" style="background-color:green">
+                <legend>Sacrament</legend>
+                <div class="form-group px-md-2 mb-3">
+                    <label asp-for="SacramentHymn" class="control-label"></label>
+                    <input asp-for="SacramentHymn" class="form-control" />
+                    <span asp-validation-for="SacramentHymn" class="text-danger"></span>
+                </div>
+            </fieldset>
+
+            <br />
+
+            <fieldset class="px-md-2" style="background-color:green">
+                <legend>Program</legend>
+                <div class="form-group px-md-2 speakers">
+                    <div>
+                        <input id="add_speaker" type="submit" value="Add Speaker" class="btn btn-primary" />
+                    </div>
+                </div>
+                <div class="form-group px-md-2 mb-3">
+                    <label asp-for="IntermediateHymn" class="control-label"></label>
+                    <input asp-for="IntermediateHymn" class="form-control" />
+                    <span asp-validation-for="IntermediateHymn" class="text-danger"></span>
+                </div>
+            </fieldset>
         </div>
     </div>
+
     <div class="row">
-        <div class="form-group">
+        <div class="form-group justify-content-center">
             <input type="submit" value="Create" class="btn btn-primary" />
             <a asp-action="Index">Back to List</a>
         </div>

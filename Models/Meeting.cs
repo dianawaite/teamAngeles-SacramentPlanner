@@ -36,7 +36,7 @@ namespace SacramentPlanner.Models
         [Display(Name = "Sacrament Hymn")]
         [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
         public string? SacramentHymn { get; set; }
-        [Display(Name = "Intermediate Hymn")]
+        [Display(Name = "Intermediate Hymn (Optional)")]
         [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
         public string? IntermediateHymn { get; set; }
         [Required]

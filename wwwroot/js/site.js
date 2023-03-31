@@ -26,7 +26,7 @@ $(document).ready(function () {
     $("#add_speaker").click(function (e) {
         // alert("click");
         e.preventDefault();
-        var newSpeaker = '<div><input type="text" name="Speaker[' + x + ']" class="form-control" /><input type="text" name="Subject[' + x + ']" class="form-control" /><a href="javascript:void(0);" class="remove_speaker"><img src="remove-icon.png" /></a></div>';
+        var newSpeaker = '<div>Speaker<input type="text" name="Speaker[' + x + ']" class="form-control" />Subject<input type="text" name="Subject[' + x + ']" class="form-control" /><a href="javascript:void(0);" class="remove_speaker">❌</a></div>';
         x++;
         $(wrapper).append(newSpeaker);
     });
