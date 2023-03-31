@@ -17,5 +17,11 @@ namespace SacramentPlanner.Data
         public DbSet<SacramentPlanner.Models.Meeting> Meeting { get; set; } = default!;
 
         public DbSet<SacramentPlanner.Models.Speaker> Speaker { get; set; } = default!;
+
+        public DbSet<SacramentPlanner.Models.Topic> Topic { get; set; } = default!;
+
+        public DbSet<SacramentPlanner.Models.Hymn> Hymn { get; set; } = default!;
+
+        public DbSet<SacramentPlanner.Models.Member> Member { get; set; } = default!;
     }
 }
