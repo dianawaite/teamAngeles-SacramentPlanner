@@ -6,11 +6,11 @@
 {
     if ((string)ViewData["OpeningHymn"] == item.Title)
     {
-        <option value="@item.Title" selected>@item.Title</option>
+        <option value="@item.Title" selected>@item.Title - page @item.Page</option>
     }
     else
     {
-        <option value="@item.Title">@item.Title</option>
+        <option value="@item.Title">@item.Title - page @item.Page</option>
     }
     /*
     @foreach (Member item in (List<Member>)@ViewData["Bishopric"])

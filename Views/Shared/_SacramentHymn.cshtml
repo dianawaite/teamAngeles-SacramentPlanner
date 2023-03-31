@@ -6,10 +6,10 @@
 {
     if ((string)ViewData["SacramentHymn"] == item.Title)
     {
-        <option value="@item.Title" selected>@item.Title</option>
+        <option value="@item.Title" selected>@item.Title - page @item.Page</option>
     }
     else
     {
-        <option value="@item.Title">@item.Title</option>
+        <option value="@item.Title">@item.Title - page @item.Page</option>
     }
 }

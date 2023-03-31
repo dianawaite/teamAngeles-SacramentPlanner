@@ -57,9 +57,10 @@
                 @Html.DisplayFor(modelItem => item.OpeningHymn)
                 <br />
                 @Html.DisplayFor(modelItem => item.SacramentHymn)
+                <br />
                 @{
                     string intermediate = item.IntermediateHymn;
-                    if (intermediate != "")
+                    if (intermediate != null)
                     {
                         @Html.DisplayFor(modelItem => item.IntermediateHymn)
                         <br />
