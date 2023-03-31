@@ -13,7 +13,7 @@
     <input type="hidden" asp-for="Id" />
     <div class="row">
         <div class="col-md-6">
-            <fieldset class="p-2" style="background-color:green">
+            <fieldset class="p-2 block">
                 <legend>Welcome</legend>
                 <div class="form-group px-2">
                     <label asp-for="Congregation" class="control-label"></label>
@@ -37,7 +37,7 @@
 
             <br />
 
-            <fieldset class="p-2" style="background-color:green">
+            <fieldset class="p-2 block">
                 <legend>Opening</legend>
                 <div class="form-group px-2">
                     <label asp-for="OpeningHymn" class="control-label"></label>
@@ -61,7 +61,7 @@
 
             <br />
 
-            <fieldset class="p-2" style="background-color:green">
+            <fieldset class="p-2 block">
                 <legend>Closing</legend>
                 <div class="form-group px-2">
                     <label asp-for="ClosingHymn" class="control-label"></label>
@@ -85,7 +85,7 @@
         </div>
 
         <div class="col-md-6">
-            <fieldset class="p-2" style="background-color:green">
+            <fieldset class="p-2 block">
                 <legend>Sacrament</legend>
                 <div class="form-group px-2 mb-3">
                     <label asp-for="SacramentHymn" class="control-label"></label>
@@ -100,7 +100,7 @@
 
             <br />
 
-            <fieldset class="p-2" style="background-color:green">
+            <fieldset class="p-2 block">
                 <legend>Program</legend>
                 <div class="form-group px-2 speakers">
                     <div>
@@ -115,14 +115,14 @@
                                     <input type="text" name="Speaker[@i]" value="@item.Name" class="form-control" />
                                     Topic
                                     <input type="text" name="Subject[@i]" value="@item.Subject" class="form-control" />
-                                    <a href="javascript:void(0);" class=" style="text-decoration:none;">Remove Speaker ❌</a>
+                                    <a href="javascript:void(0);" class="remove_speaker">Remove Speaker ❌</a>
                                 </div>
                                 // increase count to separate speakers
                                 i++;
                             }
                         }
 
-                        <input id="add_speaker" type="submit" value="Add Speaker" class="btn btn-primary" />
+                        <input id="add_speaker" type="submit" value="Add Speaker" class="btn btn-primary my-3" />
                     </div>
                 </div>
 
