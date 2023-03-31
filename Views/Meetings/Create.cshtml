@@ -11,34 +11,34 @@
 <form asp-action="Create">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="row">
-        <div class="col-6">
-            <fieldset class="p-md-2" style="background-color:green">
-            <legend>Welcome</legend>
-            <div class="form-group px-md-2">
-                <label asp-for="Congregation" class="control-label"></label>
-                <input asp-for="Congregation" class="form-control" />
-                <span asp-validation-for="Congregation" class="text-danger"></span>
-            </div>
-            <div class="form-group px-md-2">
-                <label asp-for="MeetingDate" class="control-label"></label>
-                <input asp-for="MeetingDate" class="form-control" />
-                <span asp-validation-for="MeetingDate" class="text-danger"></span>
-            </div>
-                <div class="form-group px-md-2 mb-3">
-                <label asp-for="Conducting" class="control-label"></label>
-                <select class="form-select" asp-for="Conducting">
-                    <option value=""></option>
-                    <partial name="_Members" model="@ViewData["Bishopric"]" />
-                </select>
-                <span asp-validation-for="Conducting" class="text-danger"></span>
-            </div>
+        <div class="col-md-6">
+            <fieldset class="p-2" style="background-color:green">
+                <legend>Welcome</legend>
+                <div class="form-group px-2">
+                    <label asp-for="Congregation" class="control-label"></label>
+                    <input asp-for="Congregation" class="form-control" />
+                    <span asp-validation-for="Congregation" class="text-danger"></span>
+                </div>
+                <div class="form-group px-2">
+                    <label asp-for="MeetingDate" class="control-label"></label>
+                    <input asp-for="MeetingDate" class="form-control" />
+                    <span asp-validation-for="MeetingDate" class="text-danger"></span>
+                </div>
+                    <div class="form-group px-2 mb-3">
+                    <label asp-for="Conducting" class="control-label"></label>
+                    <select class="form-select" asp-for="Conducting">
+                        <option value=""></option>
+                        <partial name="_Members" model="@ViewData["Bishopric"]" />
+                    </select>
+                    <span asp-validation-for="Conducting" class="text-danger"></span>
+                </div>
             </fieldset>
 
             <br />
 
-            <fieldset class="p-md-2" style="background-color:green">
+            <fieldset class="p-2" style="background-color:green">
                 <legend>Opening</legend>
-                <div class="form-group px-md-2">
+                <div class="form-group px-2">
                     <label asp-for="OpeningHymn" class="control-label"></label>
                     <!--input asp-for="OpeningHymn" class="form-control" /-->
                     <select class="form-select" asp-for="OpeningHymn">
@@ -47,7 +47,7 @@
                     </select>
                     <span asp-validation-for="OpeningHymn" class="text-danger"></span>
                 </div>
-                <div class="form-group px-md-2 mb-3">
+                <div class="form-group px-2 mb-3">
                     <label asp-for="OpeningPrayer" class="control-label"></label>
                     <!--input asp-for="OpeningPrayer" class="form-control" /-->
                     <select class="form-select" asp-for="OpeningPrayer">
@@ -60,9 +60,9 @@
 
             <br />
 
-            <fieldset class="p-md-2" style="background-color:green">
+            <fieldset class="p-2" style="background-color:green">
                 <legend>Closing</legend>
-                <div class="form-group px-md-2">
+                <div class="form-group px-2">
                     <label asp-for="ClosingHymn" class="control-label"></label>
                     <!--input asp-for="ClosingHymn" class="form-control" /-->
                     <select class="form-select" asp-for="ClosingHymn">
@@ -71,7 +71,7 @@
                     </select>
                     <span asp-validation-for="ClosingHymn" class="text-danger"></span>
                 </div>
-                <div class="form-group px-md-2 mb-3">
+                <div class="form-group px-2 mb-3">
                     <label asp-for="ClosingPrayer" class="control-label"></label>
                     <!--input asp-for="ClosingPrayer" class="form-control" /-->
                     <select class="form-select" asp-for="ClosingPrayer">
@@ -83,10 +83,10 @@
             </fieldset>
         </div>
 
-        <div class="col-6">
-            <fieldset class="px-md-2" style="background-color:green">
+        <div class="col-md-6">
+            <fieldset class="p-2" style="background-color:green">
                 <legend>Sacrament</legend>
-                <div class="form-group px-md-2 mb-3">
+                <div class="form-group px-2 mb-3">
                     <label asp-for="SacramentHymn" class="control-label"></label>
                     <!--input asp-for="SacramentHymn" class="form-control" /-->
                     <select class="form-select" asp-for="SacramentHymn">
@@ -99,14 +99,14 @@
 
             <br />
 
-            <fieldset class="px-md-2" style="background-color:green">
+            <fieldset class="p-2" style="background-color:green">
                 <legend>Program</legend>
-                <div class="form-group px-md-2 speakers">
+                <div class="form-group px-2 speakers">
                     <div>
                         <input id="add_speaker" type="submit" value="Add Speaker" class="btn btn-primary" />
                     </div>
                 </div>
-                <div class="form-group px-md-2 mb-3">
+                <div class="form-group px-2 mb-3">
                     <label asp-for="IntermediateHymn" class="control-label"></label>
                     <!--input asp-for="IntermediateHymn" class="form-control" /-->
                     <select class="form-select" asp-for="IntermediateHymn">

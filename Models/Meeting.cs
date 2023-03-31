@@ -18,16 +18,16 @@ namespace SacramentPlanner.Models
         public string? Conducting { get; set; }
         [Required]
 
-        [StringLength(60, MinimumLength = 3)]
+        //[StringLength(60, MinimumLength = 3)]
         [Display(Name = "Opening Prayer")]
         public string? OpeningPrayer { get; set; }
-        [Required]
 
-        [StringLength(60, MinimumLength = 3)]
+        [Required]
+        //[StringLength(60, MinimumLength = 3)]
         [Display(Name = "Closing Prayer")]
         public string? ClosingPrayer { get; set; }
-        [Required]
 
+        [Required]
         [Display(Name = "Opening Hymn")]
         [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
         public string? OpeningHymn { get; set; }

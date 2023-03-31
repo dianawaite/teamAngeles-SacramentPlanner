@@ -11,7 +11,7 @@ $(document).ready(function () {
     var x = 1;
     if ($("#speaker_count").val() != undefined) {
         x = $("#speaker_count").val();
-        alert(x);
+        //alert(x);
     }
 
     //var x = @{ ViewData["Speaker_Count"] };

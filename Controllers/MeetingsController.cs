@@ -60,6 +60,7 @@ namespace SacramentPlanner.Controllers
         // GET: Meetings/Create
         public IActionResult Create()
         {
+            /*
             // get members
             var members = _context.Member
                                        .Where(q => q.Bishopric != true)
@@ -83,7 +84,10 @@ namespace SacramentPlanner.Controllers
                            .Where(q => q.Sacrament == true)
                            .ToList();
             ViewData["SacramentHymns"] = sacramentHymns;
+            */
 
+            // bishopric, members, hymns
+            generateLists();
 
             var model = new Meeting();
 
@@ -136,6 +140,7 @@ namespace SacramentPlanner.Controllers
             ViewData["Speakers"] = speakers;
             ViewData["Speaker_Count"] = speakers.Count + 1; // increase count to get correct index when adding new speakers
 
+            // bishopric, members, hymns
             generateLists();
 
             ViewData["Conducting"] = meeting.Conducting;
@@ -143,7 +148,7 @@ namespace SacramentPlanner.Controllers
             ViewData["ClosingPrayer"] = meeting.ClosingPrayer;
             ViewData["OpeningHymn"] = meeting.OpeningHymn;
             ViewData["SacramentHymn"] = meeting.SacramentHymn;
-            ViewData["IntermediatetHymn"] = meeting.IntermediateHymn;
+            ViewData["IntermediateHymn"] = meeting.IntermediateHymn;
             ViewData["ClosingHymn"] = meeting.ClosingHymn;
 
 
