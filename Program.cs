@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SacramentPlanner.Data;
+using SacramentPlanner.Models;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<SacramentPlannerContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SacramentPlannerContext") ?? throw new InvalidOperationException("Connection string 'SacramentPlannerContext' not found.")));
@@ -9,6 +10,14 @@ builder.Services.AddDbContext<SacramentPlannerContext>(options =>
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+// seed the database
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    SeedData.Initialize(services);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

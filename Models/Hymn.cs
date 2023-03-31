@@ -9,11 +9,13 @@ namespace SacramentPlanner.Models
         [Required]
         [Display(Name = "Hymn")]
         [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
-        public string? Name { get; set; }
+        public string? Title { get; set; }
 
         [Required]
         [RegularExpression(@"^[0-9""'\s-]*$")]
         public string? Page { get; set; }
+
+        public bool Sacrament { get; set; }
 
     }
 }
