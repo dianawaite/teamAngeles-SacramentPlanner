@@ -25,7 +25,10 @@
             </div>
                 <div class="form-group px-md-2 mb-3">
                 <label asp-for="Conducting" class="control-label"></label>
-                <input asp-for="Conducting" class="form-control" />
+                <select class="form-select" asp-for="Conducting">
+                        <option value=""></option>
+                    <partial name="_Bishopric" model="@ViewData["Bishopric"]" />
+                </select>
                 <span asp-validation-for="Conducting" class="text-danger"></span>
             </div>
             </fieldset>
@@ -36,7 +39,11 @@
                 <legend>Opening</legend>
                 <div class="form-group px-md-2">
                     <label asp-for="OpeningHymn" class="control-label"></label>
-                    <input asp-for="OpeningHymn" class="form-control" />
+                    <!--input asp-for="OpeningHymn" class="form-control" /-->
+                    <select class="form-select" asp-for="OpeningHymn">
+                        <option value=""></option>
+                        <partial name="_Hymns" model="@ViewData["Hymns"]" />
+                    </select>
                     <span asp-validation-for="OpeningHymn" class="text-danger"></span>
                 </div>
                 <div class="form-group px-md-2 mb-3">
@@ -52,7 +59,11 @@
                 <legend>Closing</legend>
                 <div class="form-group px-md-2">
                     <label asp-for="ClosingHymn" class="control-label"></label>
-                    <input asp-for="ClosingHymn" class="form-control" />
+                    <!--input asp-for="ClosingHymn" class="form-control" /-->
+                    <select class="form-select" asp-for="ClosingHymn">
+                        <option value=""></option>
+                        <partial name="_Hymns" model="@ViewData["Hymns"]" />
+                    </select>
                     <span asp-validation-for="ClosingHymn" class="text-danger"></span>
                 </div>
                 <div class="form-group px-md-2 mb-3">
@@ -68,7 +79,11 @@
                 <legend>Sacrament</legend>
                 <div class="form-group px-md-2 mb-3">
                     <label asp-for="SacramentHymn" class="control-label"></label>
-                    <input asp-for="SacramentHymn" class="form-control" />
+                    <!--input asp-for="SacramentHymn" class="form-control" /-->
+                    <select class="form-select" asp-for="SacramentHymn">
+                        <option value=""></option>
+                        <partial name="_SacramentHymns" model="@ViewData["SacramentHymns"]" />
+                    </select>
                     <span asp-validation-for="SacramentHymn" class="text-danger"></span>
                 </div>
             </fieldset>
@@ -84,7 +99,11 @@
                 </div>
                 <div class="form-group px-md-2 mb-3">
                     <label asp-for="IntermediateHymn" class="control-label"></label>
-                    <input asp-for="IntermediateHymn" class="form-control" />
+                    <!--input asp-for="IntermediateHymn" class="form-control" /-->
+                    <select class="form-select" asp-for="Conducting">
+                        <option value=""></option>
+                        <partial name="_Hymns" model="@ViewData["Hymns"]" />
+                    </select>
                     <span asp-validation-for="IntermediateHymn" class="text-danger"></span>
                 </div>
             </fieldset>

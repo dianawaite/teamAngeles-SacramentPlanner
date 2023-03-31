@@ -7,13 +7,17 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SacramentPlanner.Data;
 using SacramentPlanner.Models;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace SacramentPlanner.Controllers
 {
     public class MeetingsController : Controller
     {
         private readonly SacramentPlannerContext _context;
-
+        public List<string> Bishopric = new List<string>();
+        public List<string> Members = new List<string>();
+        public List<string> Hymns = new List<string>();
+        public List<string> SacramentHymns = new List<string>();
         public MeetingsController(SacramentPlannerContext context)
         {
             _context = context;
@@ -56,7 +60,35 @@ namespace SacramentPlanner.Controllers
         // GET: Meetings/Create
         public IActionResult Create()
         {
-            return View();
+            // get members
+            var members = _context.Member
+                                       .Where(q => q.Bishopric != true)
+                                       .ToList();
+            ViewData["Members"] = members;
+
+            // get members of the bishopric
+            var bishopric = _context.Member
+                                       .Where(q => q.Bishopric == true)
+                                       .ToList();
+            ViewData["Bishopric"] = bishopric;
+
+            // get hymns
+            var hymns = _context.Hymn
+                                       .Where(q => q.Sacrament != true)
+                                       .ToList();
+            ViewData["Hymns"] = hymns;
+
+            // get sacrament hymns
+            var sacramentHymns = _context.Hymn
+                           .Where(q => q.Sacrament == true)
+                           .ToList();
+            ViewData["SacramentHymns"] = sacramentHymns;
+
+
+
+            var model = new Meeting();
+
+            return View(model);
         }
 
         // POST: Meetings/Create
