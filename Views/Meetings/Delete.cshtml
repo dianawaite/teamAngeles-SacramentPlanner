@@ -6,83 +6,125 @@
 
 <h1>Delete Meeting</h1>
 
-<div>
-    <h4>Meeting</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Congregation)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Congregation)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MeetingDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MeetingDate)
-        </dd>
-        <dt class = "col-sm-2">
+
+<div class="p-5" style="border: 1px black solid;">
+    <div class="row mb-md-4">
+        <div class="col-md-12 d-flex justify-content-center">
+            <h1>
+                @Html.DisplayFor(model => model.Congregation)
+            </h1>
+            <h2>
+                @Html.DisplayFor(model => model.MeetingDate)
+            </h2>
+        </div>
+    </div>
+
+    <div class="row mb-md-4">
+        <div class="col-md-4 d-flex justify-content-end">
             @Html.DisplayNameFor(model => model.Conducting)
-        </dt>
-        <dd class = "col-sm-10">
+        </div>
+        <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
+        <div class="col-md-4 ps-md-3">
             @Html.DisplayFor(model => model.Conducting)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OpeningPrayer)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OpeningPrayer)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ClosingPrayer)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ClosingPrayer)
-        </dd>
-        <dt class = "col-sm-2">
+        </div>
+    </div>
+
+    <div class="row mb-md-4">
+        <div class="col-md-4 d-flex justify-content-end">
             @Html.DisplayNameFor(model => model.OpeningHymn)
-        </dt>
-        <dd class = "col-sm-10">
+        </div>
+        <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
+        <div class="col-md-4 ps-md-3">
             @Html.DisplayFor(model => model.OpeningHymn)
-        </dd>
-        <dt class = "col-sm-2">
+        </div>
+    </div>
+
+    <div class="row mb-md-4">
+        <div class="col-md-4 d-flex justify-content-end">
+            @Html.DisplayNameFor(model => model.OpeningPrayer)
+        </div>
+        <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
+        <div class="col-md-4 ps-md-3">
+            @Html.DisplayFor(model => model.OpeningPrayer)
+        </div>
+    </div>
+
+    <div class="row mb-md-4">
+        <div class="col-md-12 d-flex justify-content-center">
+            <h2>Aaronic Priesthood will Pass the Sacrament</h2>
+        </div>
+    </div>
+
+    <!--div class="row mb-md-4">
+        <div class="col-md-6">
+            Oh God, the Eternal Father ...
+        </div>
+        <div class="col-md-6">
+            Oh God, the Eternal Father ...
+        </div>
+    </div-->
+
+    <div class="row mb-md-4">
+        <div class="col-md-4 d-flex justify-content-end">
             @Html.DisplayNameFor(model => model.SacramentHymn)
-        </dt>
-        <dd class = "col-sm-10">
+        </div>
+        <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
+        <div class="col-md-4 ps-md-3">
             @Html.DisplayFor(model => model.SacramentHymn)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IntermediateHymn)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IntermediateHymn)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ClosingHymn)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ClosingHymn)
-        </dd>
-        <dt class="col-sm-2">
+        </div>
+    </div>
+
+    <div class="row mb-md-4">
+        <div class="col-md-4 d-flex justify-content-end">
             Speakers
-        </dt>
-       <dd class="col-sm-10">
+        </div>
+        <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
+        <div class="col-md-4 ps-md-3">
             @{
-                int i = 1;
-                foreach (var item in ViewData["Speakers"] as IEnumerable<SacramentPlanner.Models.Speaker>)
+                if (ViewData.Count() > 1)
                 {
-                    // https://stackoverflow.com/questions/24982032/foreach-on-viewdata-in-mvc-4-view
-                    @item.Name @: @item.Subject <br>
+                    foreach (var item in ViewData["Speakers"] as IEnumerable<SacramentPlanner.Models.Speaker>)
+                    {
+                        @item.Name @:: @item.Subject
+                        <br />
+                    }
+                }
+                else
+                {
+                    <div>No speakers have been selected for todays meeting.</div>
                 }
             }
-        </dd>
+        </div>
+    </div>
 
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+    <div class="row mb-md-4">
+        <div class="col-md-4 d-flex justify-content-end">
+            @Html.DisplayNameFor(model => model.ClosingHymn)
+        </div>
+        <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
+        <div class="col-md-4 ps-md-3">
+            @Html.DisplayFor(model => model.ClosingHymn)
+        </div>
+    </div>
+
+    <div class="row mb-md-4">
+        <div class="col-md-4 d-flex justify-content-end">
+            @Html.DisplayNameFor(model => model.ClosingPrayer)
+        </div>
+        <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
+        <div class="col-md-4 ps-md-3">
+            @Html.DisplayFor(model => model.ClosingPrayer)
+        </div>
+    </div>
+
+</div>
+
+<div class="row mt-5">
+    <div class="form-group d-flex justify-content-center align-content-center">
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            <a asp-action="Index" class="pt-1">Back to List</a>
+        </form>
+    </div>
 </div>

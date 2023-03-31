@@ -19,12 +19,12 @@ namespace SacramentPlanner.Models
         [Required]
 
         //[StringLength(60, MinimumLength = 3)]
-        [Display(Name = "Opening Prayer")]
+        [Display(Name = "Invocation")]
         public string? OpeningPrayer { get; set; }
 
         [Required]
         //[StringLength(60, MinimumLength = 3)]
-        [Display(Name = "Closing Prayer")]
+        [Display(Name = "Benediction")]
         public string? ClosingPrayer { get; set; }
 
         [Required]

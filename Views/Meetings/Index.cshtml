@@ -12,35 +12,23 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
+            <!--th>
                 @Html.DisplayNameFor(model => model.Id)
+            </th-->
+            <th>
+                @Html.DisplayNameFor(model => model.MeetingDate)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Congregation)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MeetingDate)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Conducting)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.OpeningPrayer)
+                Prayers
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ClosingPrayer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OpeningHymn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SacramentHymn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IntermediateHymn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClosingHymn)
+                Hymns
             </th>
             <th></th>
         </tr>
@@ -48,34 +36,35 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <!--td>
                 @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Congregation)
-            </td>
+            </td-->
             <td>
                 @Html.DisplayFor(modelItem => item.MeetingDate)
             </td>
-            <td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Congregation)
+                </td>
+                <td>
                 @Html.DisplayFor(modelItem => item.Conducting)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.OpeningPrayer)
-            </td>
-            <td>
+                <br />
                 @Html.DisplayFor(modelItem => item.ClosingPrayer)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.OpeningHymn)
-            </td>
-            <td>
+                <br />
                 @Html.DisplayFor(modelItem => item.SacramentHymn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IntermediateHymn)
-            </td>
-            <td>
+                @{
+                    string intermediate = item.IntermediateHymn;
+                    if (intermediate != "")
+                    {
+                        @Html.DisplayFor(modelItem => item.IntermediateHymn)
+                        <br />
+                    }
+                }
                 @Html.DisplayFor(modelItem => item.ClosingHymn)
             </td>
             <td>
