@@ -7,88 +7,146 @@
 <h1>Edit Meeting</h1>
 
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Congregation" class="control-label"></label>
-                <input asp-for="Congregation" class="form-control" />
-                <span asp-validation-for="Congregation" class="text-danger"></span>
-            </div>            
-            <div class="form-group">
-                <label asp-for="MeetingDate" class="control-label"></label>
-                <input asp-for="MeetingDate" class="form-control" />
-                <span asp-validation-for="MeetingDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Conducting" class="control-label"></label>
-                <input asp-for="Conducting" class="form-control" />
-                <span asp-validation-for="Conducting" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OpeningPrayer" class="control-label"></label>
-                <input asp-for="OpeningPrayer" class="form-control" />
-                <span asp-validation-for="OpeningPrayer" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClosingPrayer" class="control-label"></label>
-                <input asp-for="ClosingPrayer" class="form-control" />
-                <span asp-validation-for="ClosingPrayer" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OpeningHymn" class="control-label"></label>
-                <input asp-for="OpeningHymn" class="form-control" />
-                <span asp-validation-for="OpeningHymn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SacramentHymn" class="control-label"></label>
-                <input asp-for="SacramentHymn" class="form-control" />
-                <span asp-validation-for="SacramentHymn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IntermediateHymn" class="control-label"></label>
-                <input asp-for="IntermediateHymn" class="form-control" />
-                <span asp-validation-for="IntermediateHymn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClosingHymn" class="control-label"></label>
-                <input asp-for="ClosingHymn" class="form-control" />
-                <span asp-validation-for="ClosingHymn" class="text-danger"></span>
-            </div>
-            <div class="form-group speakers">
-                <div>
-                    <input id="speaker_count" type="hidden" value="@ViewData["Speaker_Count"]" />
-                    @{
-                        int i = 1;
-                        foreach (var item in ViewData["Speakers"] as IEnumerable<SacramentPlanner.Models.Speaker>)
-                        {
-                            // https://stackoverflow.com/questions/24982032/foreach-on-viewdata-in-mvc-4-view
-                            <div>
-                                <input type="text" name="Speaker[@i]" value="@item.Name" class="form_control" />
-                                <input type="text" name="Subject[@i]" value="@item.Subject" class="form_control" />
-                                <a href="javascript:void(0);" class="remove_speaker"><img src="remove-icon.png" /></a>
-                            </div>
-                            // increase count to separate speakers
-                            i++;
-                        }
-                    }
 
-                    <input id="add_speaker" type="submit" value="Add Speaker" class="btn btn-primary" />
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+    <div class="row">
+        <div class="col-6">
+            <fieldset class="p-md-2" style="background-color:green">
+                <legend>Welcome</legend>
+                <div class="form-group px-md-2">
+                    <label asp-for="Congregation" class="control-label"></label>
+                    <input asp-for="Congregation" class="form-control" />
+                    <span asp-validation-for="Congregation" class="text-danger"></span>
                 </div>
-            </div>
+                <div class="form-group px-md-2">
+                    <label asp-for="MeetingDate" class="control-label"></label>
+                    <input asp-for="MeetingDate" class="form-control" />
+                    <span asp-validation-for="MeetingDate" class="text-danger"></span>
+                </div>
+                <div class="form-group px-md-2 mb-3">
+                    <label asp-for="Conducting" class="control-label"></label>
+                    <select class="form-select" asp-for="Conducting">
+                        <option value=""></option>
+                        <partial name="_Conducting" model="@ViewData["Bishopric"]" />
+                    </select>
+                    <span asp-validation-for="Conducting" class="text-danger"></span>
+                </div>
+            </fieldset>
 
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+            <br />
+
+            <fieldset class="p-md-2" style="background-color:green">
+                <legend>Opening</legend>
+                <div class="form-group px-md-2">
+                    <label asp-for="OpeningHymn" class="control-label"></label>
+                    <!--input asp-for="OpeningHymn" class="form-control" /-->
+                    <select class="form-select" asp-for="OpeningHymn">
+                        <option value=""></option>
+                        <partial name="_OpeningHymn" model="@ViewData["Hymns"]" />
+                    </select>
+                    <span asp-validation-for="OpeningHymn" class="text-danger"></span>
+                </div>
+                <div class="form-group px-md-2 mb-3">
+                    <label asp-for="OpeningPrayer" class="control-label"></label>
+                    <!--input asp-for="OpeningPrayer" class="form-control" /-->
+                    <select class="form-select" asp-for="OpeningPrayer">
+                        <option value=""></option>
+                        <partial name="_OpeningPrayer" model="@ViewData["Members"]" />
+                    </select>
+                    <span asp-validation-for="OpeningPrayer" class="text-danger"></span>
+                </div>
+            </fieldset>
+
+            <br />
+
+            <fieldset class="p-md-2" style="background-color:green">
+                <legend>Closing</legend>
+                <div class="form-group px-md-2">
+                    <label asp-for="ClosingHymn" class="control-label"></label>
+                    <!--input asp-for="ClosingHymn" class="form-control" /-->
+                    <select class="form-select" asp-for="ClosingHymn">
+                        <option value=""></option>
+                        <partial name="_ClosingHymn" model="@ViewData["Hymns"]" />
+                    </select>
+                    <span asp-validation-for="ClosingHymn" class="text-danger"></span>
+                </div>
+                <div class="form-group px-md-2 mb-3">
+                    <label asp-for="ClosingPrayer" class="control-label"></label>
+                    <!--input asp-for="ClosingPrayer" class="form-control" /-->
+                    <select class="form-select" asp-for="ClosingPrayer">
+                        <option value=""></option>
+                        <partial name="_ClosingPrayer" model="@ViewData["Members"]" />
+                    </select>
+                    <span asp-validation-for="ClosingPrayer" class="text-danger"></span>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="col-6">
+            <fieldset class="px-md-2" style="background-color:green">
+                <legend>Sacrament</legend>
+                <div class="form-group px-md-2 mb-3">
+                    <label asp-for="SacramentHymn" class="control-label"></label>
+                    <!--input asp-for="SacramentHymn" class="form-control" /-->
+                    <select class="form-select" asp-for="SacramentHymn">
+                        <option value=""></option>
+                        <partial name="_SacramentHymn" model="@ViewData["SacramentHymns"]" />
+                    </select>
+                    <span asp-validation-for="SacramentHymn" class="text-danger"></span>
+                </div>
+            </fieldset>
+
+            <br />
+
+            <fieldset class="px-md-2" style="background-color:green">
+                <legend>Program</legend>
+                <div class="form-group px-md-2 speakers">
+                    <div>
+                        <input id="speaker_count" type="hidden" value="@ViewData["Speaker_Count"]" />
+                        @{
+                            int i = 1;
+                            foreach (var item in ViewData["Speakers"] as IEnumerable<SacramentPlanner.Models.Speaker>)
+                            {
+                                // https://stackoverflow.com/questions/24982032/foreach-on-viewdata-in-mvc-4-view
+                                <div>
+                                    Speaker
+                                    <input type="text" name="Speaker[@i]" value="@item.Name" class="form-control" />
+                                    Topic
+                                    <input type="text" name="Subject[@i]" value="@item.Subject" class="form-control" />
+                                    <a href="javascript:void(0);" class=" style="text-decoration:none;">Remove Speaker ❌</a>
+                                </div>
+                                // increase count to separate speakers
+                                i++;
+                            }
+                        }
+
+                        <input id="add_speaker" type="submit" value="Add Speaker" class="btn btn-primary" />
+                    </div>
+                </div>
+
+
+                <div class="form-group px-md-2 mb-3">
+                    <label asp-for="IntermediateHymn" class="control-label"></label>
+                    <!--input asp-for="IntermediateHymn" class="form-control" /-->
+                    <select class="form-select" asp-for="IntermediateHymn">
+                        <option value=""></option>
+                        <partial name="_IntermediateHymn" model="@ViewData["Hymns"]" />
+                    </select>
+                    <span asp-validation-for="IntermediateHymn" class="text-danger"></span>
+                </div>
+            </fieldset>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div class="row mt-5">
+        <div class="form-group d-flex justify-content-center align-content-center">
+            <input type="submit" value="Save" class="btn btn-primary me-3" />
+            <a asp-action="Index" class="pt-1">Back to List</a>
+        </div>
+    </div>
+</form>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

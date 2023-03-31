@@ -1,9 +1,10 @@
 ﻿@model List<Hymn>
 
 <!-- https://www.learnrazorpages.com/razor-pages/partial-pages -->
+
 @foreach (var item in Model)
 {
-    if ((string)ViewData["Hymn"] == item.Title)
+    if ((string)ViewData["IntermediateHymn"] == item.Title)
     {
         <option value="@item.Title" selected>@item.Title</option>
     }

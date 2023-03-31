@@ -14,10 +14,10 @@ namespace SacramentPlanner.Controllers
     public class MeetingsController : Controller
     {
         private readonly SacramentPlannerContext _context;
-        public List<string> Bishopric = new List<string>();
-        public List<string> Members = new List<string>();
-        public List<string> Hymns = new List<string>();
-        public List<string> SacramentHymns = new List<string>();
+        //public List<string> Bishopric = new List<string>();
+        //public List<string> Members = new List<string>();
+        //public List<string> Hymns = new List<string>();
+        //public List<string> SacramentHymns = new List<string>();
         public MeetingsController(SacramentPlannerContext context)
         {
             _context = context;
@@ -85,7 +85,6 @@ namespace SacramentPlanner.Controllers
             ViewData["SacramentHymns"] = sacramentHymns;
 
 
-
             var model = new Meeting();
 
             return View(model);
@@ -110,6 +109,7 @@ namespace SacramentPlanner.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
+
             return View(meeting);
         }
 
@@ -135,6 +135,17 @@ namespace SacramentPlanner.Controllers
             // https://www.tutorialsteacher.com/mvc/viewbag-in-asp.net-mvc
             ViewData["Speakers"] = speakers;
             ViewData["Speaker_Count"] = speakers.Count + 1; // increase count to get correct index when adding new speakers
+
+            generateLists();
+
+            ViewData["Conducting"] = meeting.Conducting;
+            ViewData["OpeningPrayer"] = meeting.OpeningPrayer;
+            ViewData["ClosingPrayer"] = meeting.ClosingPrayer;
+            ViewData["OpeningHymn"] = meeting.OpeningHymn;
+            ViewData["SacramentHymn"] = meeting.SacramentHymn;
+            ViewData["IntermediatetHymn"] = meeting.IntermediateHymn;
+            ViewData["ClosingHymn"] = meeting.ClosingHymn;
+
 
             return View(meeting);
         }
@@ -294,5 +305,34 @@ namespace SacramentPlanner.Controllers
             }
             _context.SaveChanges();
         }
+
+        private void generateLists()
+        {
+            // get members
+            var members = _context.Member
+                                       .Where(q => q.Bishopric != true)
+                                       .ToList();
+            ViewData["Members"] = members;
+
+            // get members of the bishopric
+            var bishopric = _context.Member
+                                       .Where(q => q.Bishopric == true)
+                                       .ToList();
+            ViewData["Bishopric"] = bishopric;
+
+            // get hymns
+            var hymns = _context.Hymn
+                                       .Where(q => q.Sacrament != true)
+                                       .ToList();
+            ViewData["Hymns"] = hymns;
+
+            // get sacrament hymns
+            var sacramentHymns = _context.Hymn
+                           .Where(q => q.Sacrament == true)
+                           .ToList();
+            ViewData["SacramentHymns"] = sacramentHymns;
+
+        }
+
     }
 }
