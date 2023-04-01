@@ -104,6 +104,11 @@
 
             <fieldset class="p-2 block">
                 <legend>Program</legend>
+                <div class="form-group px-2">
+                    <label asp-for="Topic" class="control-label"></label>
+                    <input asp-for="Topic" class="form-control" />
+                    <span asp-validation-for="Topic" class="text-danger"></span>
+                </div>
                 <div class="form-group px-2 speakers">
                     <div>
                         <input id="add_speaker" type="submit" value="Add Speaker" class="btn btn-primary my-3" />

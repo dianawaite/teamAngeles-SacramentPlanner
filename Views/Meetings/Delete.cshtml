@@ -13,9 +13,19 @@
             <h1>
                 @Html.DisplayFor(model => model.Congregation)
             </h1>
-            <h2>
+        </div>
+    </div>
+    <div class="row mb-md-4">
+        <div class="col-md-12 d-flex justify-content-center">
+            <h3>
                 @Html.DisplayFor(model => model.MeetingDate)
-            </h2>
+            </h3>
+        </div>
+    </div>
+
+    <div class="row mb-md-4">
+        <div class="col-md-12 d-flex justify-content-center blockquote">
+            @ViewData["Quote"]
         </div>
     </div>
 
@@ -116,7 +126,6 @@
             @Html.DisplayFor(model => model.ClosingPrayer)
         </div>
     </div>
-
 </div>
 
 <div class="row mt-5">

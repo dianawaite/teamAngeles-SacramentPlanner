@@ -112,23 +112,28 @@ public static class SeedData
                 context.Topic.AddRange(
                     new Topic
                     {
-                        Name = "Charity"
+                        Name = "Charity",
+                        Quote = "Wherefore, cleave unto charity, which is the greatest of all, for all things must fail—but charity is the pure love of Christ, and it endureth forever (Moroni 7:46–47)"
                     },
                     new Topic
                     {
-                        Name = "Hope"
+                        Name = "Hope",
+                        Quote = "Regardless of how desparate things may seem, remember-we can always have hope. Always! ~President Russel M. Nelson"
                     },
                     new Topic
                     {
-                        Name = "Faith"
+                        Name = "Faith",
+                        Quote = "Faith in the Savior taught me that no matter what happened in the past, my story could have a happy ending. ~President Dieter F. Uchtdorf"
                     },
                     new Topic
                     {
-                        Name = "Forgiveness"
+                        Name = "Forgiveness",
+                        Quote = "Ye ought to forgive one another; for he that forgiveth not his brother his trespasses standeth condemned before the Lord; for there remaineth in him the greater sin. I, the Lord, will forgive whom I will forgive, but of you it is required to forgive all men (Doctrine and Covenants 64:9–10)"
                     },
                     new Topic
                     {
-                        Name = "Miracles"
+                        Name = "Miracles",
+                        Quote = "There are miracles all around, if we have eyes to see. ~Elder Ronald A. Rasband"
                     }
                 );
                 context.SaveChanges();
@@ -149,7 +154,8 @@ public static class SeedData
                     ClosingPrayer = "Jason Williams",
                     OpeningHymn = "The Morning Breaks",
                     SacramentHymn = "As Now We Take the Sacrament",
-                    ClosingHymn = "Secret Prayer"
+                    ClosingHymn = "Secret Prayer",
+                    Topic = "Hope"
                 };
 
                 context.Meeting.AddRange(

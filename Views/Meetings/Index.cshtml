@@ -30,6 +30,9 @@
             <th>
                 Hymns
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Topic)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -67,6 +70,9 @@
                     }
                 }
                 @Html.DisplayFor(modelItem => item.ClosingHymn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Topic)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

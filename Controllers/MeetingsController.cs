@@ -46,9 +46,12 @@ namespace SacramentPlanner.Controllers
                 return NotFound();
             }
 
+            // use meeting topic to query Topic table, get quote
+            ViewData["Quote"] = getQuote(meeting.Topic);
+
             // get meeting speakers
             var speakers = _context.Speaker
-                                       .Where(s => s.Meeting == id)
+                                       .Where(q => q.Meeting == id)
                                        .ToList();
 
             // https://www.tutorialsteacher.com/mvc/viewbag-in-asp.net-mvc
@@ -60,33 +63,7 @@ namespace SacramentPlanner.Controllers
         // GET: Meetings/Create
         public IActionResult Create()
         {
-            /*
-            // get members
-            var members = _context.Member
-                                       .Where(q => q.Bishopric != true)
-                                       .ToList();
-            ViewData["Members"] = members;
-
-            // get members of the bishopric
-            var bishopric = _context.Member
-                                       .Where(q => q.Bishopric == true)
-                                       .ToList();
-            ViewData["Bishopric"] = bishopric;
-
-            // get hymns
-            var hymns = _context.Hymn
-                                       .Where(q => q.Sacrament != true)
-                                       .ToList();
-            ViewData["Hymns"] = hymns;
-
-            // get sacrament hymns
-            var sacramentHymns = _context.Hymn
-                           .Where(q => q.Sacrament == true)
-                           .ToList();
-            ViewData["SacramentHymns"] = sacramentHymns;
-            */
-
-            // bishopric, members, hymns
+            // bishopric, members, hymns, topics
             generateLists();
 
             var model = new Meeting();
@@ -99,7 +76,7 @@ namespace SacramentPlanner.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(IFormCollection collection, [Bind("Id,Congregation,MeetingDate,Conducting,OpeningPrayer,ClosingPrayer,OpeningHymn,SacramentHymn,IntermediateHymn,ClosingHymn")] Meeting meeting)
+        public async Task<IActionResult> Create(IFormCollection collection, [Bind("Id,Congregation,MeetingDate,Conducting,OpeningPrayer,ClosingPrayer,OpeningHymn,SacramentHymn,IntermediateHymn,ClosingHymn,Topic")] Meeting meeting)
         {
             if (ModelState.IsValid)
             {
@@ -140,7 +117,7 @@ namespace SacramentPlanner.Controllers
             ViewData["Speakers"] = speakers;
             ViewData["Speaker_Count"] = speakers.Count + 1; // increase count to get correct index when adding new speakers
 
-            // bishopric, members, hymns
+            // bishopric, members, hymns, topics
             generateLists();
 
             ViewData["Conducting"] = meeting.Conducting;
@@ -150,7 +127,7 @@ namespace SacramentPlanner.Controllers
             ViewData["SacramentHymn"] = meeting.SacramentHymn;
             ViewData["IntermediateHymn"] = meeting.IntermediateHymn;
             ViewData["ClosingHymn"] = meeting.ClosingHymn;
-
+            ViewData["Topic"] = meeting.Topic;
 
             return View(meeting);
         }
@@ -160,7 +137,7 @@ namespace SacramentPlanner.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, IFormCollection collection, [Bind("Id,Congregation,MeetingDate,Conducting,OpeningPrayer,ClosingPrayer,OpeningHymn,SacramentHymn,IntermediateHymn,ClosingHymn")] Meeting meeting)
+        public async Task<IActionResult> Edit(int id, IFormCollection collection, [Bind("Id,Congregation,MeetingDate,Conducting,OpeningPrayer,ClosingPrayer,OpeningHymn,SacramentHymn,IntermediateHymn,ClosingHymn,Topic")] Meeting meeting)
         {
             if (id != meeting.Id)
             {
@@ -210,6 +187,8 @@ namespace SacramentPlanner.Controllers
             {
                 return NotFound();
             }
+
+            ViewData["Quote"] = getQuote(meeting.Topic);
 
             // get meeting speakers
             var speakers = _context.Speaker
@@ -337,7 +316,28 @@ namespace SacramentPlanner.Controllers
                            .ToList();
             ViewData["SacramentHymns"] = sacramentHymns;
 
+            // get topics
+            var topics = _context.Topic
+                           .ToList();
+            ViewData["Topics"] = topics;
         }
 
+        private string getQuote(string topic)
+        {
+            string quote = "";
+
+            // use meeting topic to query Topic table, get quote
+            var topics = _context.Topic
+                           .Where(q => q.Name == topic)
+                           .ToList();
+
+            foreach (var item in topics)
+            {
+                // TODO: get a random item or randomize the list and get the first
+                quote = item.Quote;
+            }
+
+            return quote;
+        }
     }
 }

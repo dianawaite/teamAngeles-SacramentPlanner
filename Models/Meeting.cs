@@ -7,7 +7,7 @@ namespace SacramentPlanner.Models
     {
         public int Id { get; set; }
         [Required]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
+        //[RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
         public string? Congregation { get; set; }
         [DataType(DataType.Date)]
 
@@ -29,20 +29,23 @@ namespace SacramentPlanner.Models
 
         [Required]
         [Display(Name = "Opening Hymn")]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
+        //[RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
         public string? OpeningHymn { get; set; }
         [Required]
 
         [Display(Name = "Sacrament Hymn")]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
+        //[RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
         public string? SacramentHymn { get; set; }
         [Display(Name = "Intermediate Hymn (Optional)")]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
+        //[RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
         public string? IntermediateHymn { get; set; }
         [Required]
 
         [Display(Name = "Closing Hymn")]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
+        //[RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
         public string? ClosingHymn { get; set; }
+
+        [Display(Name = "Topic (Optional)")]
+        public string? Topic { get; set; }
     }
 }
