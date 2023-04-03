@@ -15,6 +15,8 @@ namespace SacramentPlanner.Controllers
 
         public IActionResult Index()
         {
+            ViewData["audio"] = getAudio();
+
             return View();
         }
 
@@ -27,6 +29,15 @@ namespace SacramentPlanner.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        private string getAudio()
+        {
+            var random = new Random();
+            var list = new List<string> { "morning_break.mp3", "praise_man.mp3", "saints.mp3", "battle_hymn.mp3", "shepherd.mp3" };
+            int index = random.Next(list.Count);
+
+            return list[index];
         }
     }
 }
