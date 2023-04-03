@@ -14,10 +14,7 @@ namespace SacramentPlanner.Controllers
     public class MeetingsController : Controller
     {
         private readonly SacramentPlannerContext _context;
-        //public List<string> Bishopric = new List<string>();
-        //public List<string> Members = new List<string>();
-        //public List<string> Hymns = new List<string>();
-        //public List<string> SacramentHymns = new List<string>();
+
         public MeetingsController(SacramentPlannerContext context)
         {
             _context = context;
@@ -26,6 +23,35 @@ namespace SacramentPlanner.Controllers
         // GET: Meetings
         public async Task<IActionResult> Index()
         {
+
+            ViewData["audio"] = getAudio();
+
+            // get all meetings
+            var meetings = _context.Meeting
+                                       .ToList();
+
+            // for all meetings
+            if (meetings.Count() > 0) 
+            {
+                foreach (var item in meetings) {
+                    var speakers = _context.Speaker
+                                               .Where(s => s.Meeting == item.Id)
+                                               .ToList();
+
+                    System.Diagnostics.Debug.WriteLine($"meetingId = {item.Id}, speakers = {speakers.Count}");
+
+                    //ViewData[item.Id.ToString()] = speakers.Count;
+                    if (speakers.Count() != 0)
+                    {
+                        ViewData[item.Id.ToString()] = speakers;
+                    }
+                    else
+                    {
+                        ViewData[item.Id.ToString()] = "none";
+                    }
+                }
+            }
+
             return _context.Meeting != null ? 
                           View(await _context.Meeting.ToListAsync()) :
                           Problem("Entity set 'SacramentPlannerContext.Meeting'  is null.");
@@ -38,6 +64,8 @@ namespace SacramentPlanner.Controllers
             {
                 return NotFound();
             }
+
+            ViewData["audio"] = getAudio();
 
             var meeting = await _context.Meeting
                 .FirstOrDefaultAsync(m => m.Id == id);
@@ -69,6 +97,8 @@ namespace SacramentPlanner.Controllers
         // GET: Meetings/Create
         public IActionResult Create()
         {
+            ViewData["audio"] = getAudio();
+
             // bishopric, members, hymns, topics
             generateLists();
 
@@ -113,6 +143,8 @@ namespace SacramentPlanner.Controllers
             {
                 return NotFound();
             }
+
+            ViewData["audio"] = getAudio();
 
             // get meeting speakers
             var speakers = _context.Speaker
@@ -186,6 +218,8 @@ namespace SacramentPlanner.Controllers
             {
                 return NotFound();
             }
+
+            ViewData["audio"] = getAudio();
 
             var meeting = await _context.Meeting
                 .FirstOrDefaultAsync(m => m.Id == id);
@@ -351,6 +385,15 @@ namespace SacramentPlanner.Controllers
             }
 
             return quote;
+        }
+
+        private string getAudio() 
+        {
+            var random = new Random();
+            var list = new List<string> { "morning_break.mp3", "praise_man.mp3", "saints.mp3", "battle_hymn.mp3", "shepherd.mp3" };
+            int index = random.Next(list.Count);
+
+            return list[index];
         }
     }
 }

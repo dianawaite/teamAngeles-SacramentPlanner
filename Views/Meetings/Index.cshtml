@@ -12,9 +12,9 @@
 <table class="table">
     <thead>
         <tr>
-            <!--th>
+            <th>
                 @Html.DisplayNameFor(model => model.Id)
-            </th-->
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.MeetingDate)
             </th>
@@ -31,6 +31,9 @@
                 Hymns
             </th>
             <th>
+                Speakers
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Topic)
             </th>
             <th></th>
@@ -39,9 +42,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <!--td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Id)
-            </td-->
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MeetingDate)
             </td>
@@ -71,10 +74,25 @@
                 }
                 @Html.DisplayFor(modelItem => item.ClosingHymn)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Topic)
+            <td>@{
+                    if (ViewData[item.Id.ToString()] != "none")
+                    {
+                        foreach (var speaker in ViewData[item.Id.ToString()] as IEnumerable<SacramentPlanner.Models.Speaker>)
+                        {
+                            // item.Id.ToString()
+                            <span>@speaker.Name</span><br />
+                        }
+                    }
+                    else
+                    {
+                        <span>No assigned speakers</span>
+                    }
+                }
             </td>
-            <td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Topic)
+                </td>
+                <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
