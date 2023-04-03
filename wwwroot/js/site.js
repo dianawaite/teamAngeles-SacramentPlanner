@@ -26,42 +26,8 @@ $(document).ready(function () {
     $("#add_speaker").click(function (e) {
         // alert("click");
         e.preventDefault();
-        var newSpeaker = '<div>Speaker<input type="text" name="Speaker[' + x + ']" class="form-control" />Topic<input type="text" name="Subject[' + x + ']" class="form-control" /><a href="javascript:void(0);" class="remove_speaker">Remove Speaker ❌</a></div>';
+        var newSpeaker = '<div>Speaker<input type="text" name="Speaker[' + x + ']" class="form-control" />Subject<input type="text" name="Subject[' + x + ']" class="form-control" /><a href="javascript:void(0);" class="remove_speaker">Remove Speaker ❌</a></div>';
         x++;
         $(wrapper).append(newSpeaker);
     });
 });
-
-
-
-// Write your JavaScript code.
-/*
-    <div class="form-group speakers">
-        <div>
-            <input id="add_speaker" type="submit" value="Add Speaker" class="btn btn-primary" />
-        </div>
-    </div> 
-     <script>
-        // https://www.codexworld.com/add-remove-input-fields-dynamically-using-jquery/
-
-        $(document).ready(function () {
-            var wrapper = $(".speakers"); //Input field wrapper
-
-            // remove speaker
-            $(wrapper).on('click', '.remove_speaker', function (e) {
-                e.preventDefault();
-                $(this).parent('div').remove();
-            });
-
-            // add new speaker
-            $("#add_speaker").click(function (e) {
-                alert("click");
-                e.preventDefault();
-                var newSpeaker = '<div><input type="text" name="Speaker[]" class="form_control" /><input type="text" name="Subject[]" class="form_control" /><a href="javascript:void(0);" class="remove_speaker"><img src="remove-icon.png" /></a></div>';
-                $(wrapper).append(newSpeaker);
-            });
-
-
-        });
-    </script>
- */
