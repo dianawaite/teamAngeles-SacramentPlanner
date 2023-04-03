@@ -39,62 +39,65 @@
         <div class="col-md-4 d-flex justify-content-md-end">
             @Html.DisplayNameFor(model => model.Conducting)
         </div>
-        <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
+        <div class="col-md-4 d-none d-md-inline"><hr style="border-top: 1px black dotted"></div>
         <div class="col-md-4 ps-md-3 justify-content-end justify-content-md-start">
             @Html.DisplayFor(model => model.Conducting)
         </div>
     </div>
+    <br class="d-md-none">
 
     <div class="row mb-md-4">
         <div class="col-md-4 d-flex justify-content-md-end">
             @Html.DisplayNameFor(model => model.OpeningHymn)
         </div>
-        <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
+        <div class="col-md-4 d-none d-md-inline"><hr style="border-top: 1px black dotted"></div>
         <div class="col-md-4 ps-md-3">
             @Html.DisplayFor(model => model.OpeningHymn)
         </div>
     </div>
+    <br class="d-md-none">
 
     <div class="row mb-md-4">
         <div class="col-md-4 d-flex justify-content-md-end">
             @Html.DisplayNameFor(model => model.OpeningPrayer)
         </div>
-        <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
+        <div class="col-md-4 d-none d-md-inline"><hr style="border-top: 1px black dotted"></div>
         <div class="col-md-4 ps-md-3">
             @Html.DisplayFor(model => model.OpeningPrayer)
         </div>
     </div>
+    <br class="d-md-none">
+
+    <div class="row mb-md-4">
+        <div class="col-md-12 d-flex justify-content-center">
+            <h2>Announcements</h2>
+        </div>
+    </div>
+    <br class="d-md-none">
+
+    <div class="row mb-md-4">
+        <div class="col-md-4 d-flex justify-content-md-end">
+            @Html.DisplayNameFor(model => model.SacramentHymn)
+        </div>
+        <div class="col-md-4 d-none d-md-inline"><hr style="border-top: 1px black dotted"></div>
+        <div class="col-md-4 ps-md-3">
+            @Html.DisplayFor(model => model.SacramentHymn)
+        </div>
+    </div>
+    <br class="d-md-none">
 
     <div class="row mb-md-4">
         <div class="col-md-12 d-flex justify-content-center">
             <h2>Aaronic Priesthood will Pass the Sacrament</h2>
         </div>
     </div>
-
-    <!--div class="row mb-md-4">
-        <div class="col-md-6">
-            Oh God, the Eternal Father ...
-        </div>
-        <div class="col-md-6">
-            Oh God, the Eternal Father ...
-        </div>
-    </div-->
-
-    <div class="row mb-md-4">
-        <div class="col-md-4 d-flex justify-content-md-end">
-            @Html.DisplayNameFor(model => model.SacramentHymn)
-        </div>
-        <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
-        <div class="col-md-4 ps-md-3">
-            @Html.DisplayFor(model => model.SacramentHymn)
-        </div>
-    </div>
+    <br class="d-md-none">
 
     <div class="row mb-md-4">
         <div class="col-md-4 d-flex justify-content-md-end">
             Speakers
         </div>
-        <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
+        <div class="col-md-4 d-none d-md-inline"><hr style="border-top: 1px black dotted"></div>
         <div class="col-md-4 ps-md-3">
             @{
                 if (ViewData["Speakers"] != "none")
@@ -112,22 +115,24 @@
             }
         </div>
     </div>
+    <br class="d-md-none">
 
     <div class="row mb-md-4">
         <div class="col-md-4 d-flex justify-content-md-end">
             @Html.DisplayNameFor(model => model.ClosingHymn)
         </div>
-        <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
+        <div class="col-md-4 d-none d-md-inline"><hr style="border-top: 1px black dotted"></div>
         <div class="col-md-4 ps-md-3">
             @Html.DisplayFor(model => model.ClosingHymn)
         </div>
     </div>
+    <br class="d-md-none">
 
     <div class="row mb-md-4">
         <div class="col-md-4 d-flex justify-content-md-end">
             @Html.DisplayNameFor(model => model.ClosingPrayer)
         </div>
-        <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
+        <div class="col-md-4 d-none d-md-inline"><hr style="border-top: 1px black dotted"></div>
         <div class="col-md-4 ps-md-3">
             @Html.DisplayFor(model => model.ClosingPrayer)
         </div>

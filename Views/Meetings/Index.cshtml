@@ -12,9 +12,9 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
+            <!--th>
                 @Html.DisplayNameFor(model => model.Id)
-            </th>
+            </th-->
             <th>
                 @Html.DisplayNameFor(model => model.MeetingDate)
             </th>
@@ -42,24 +42,29 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <!--td>
                 @Html.DisplayFor(modelItem => item.Id)
-            </td>
+            </td-->
              <td data-label="Meeting Date">
+                <h4 class="d-md-none">Meeting Date</h4>
                 @Html.DisplayFor(modelItem => item.MeetingDate)
             </td data-label="Congregation">
             <td>
+                <h4 class="d-md-none">Congregation</h4>
                 @Html.DisplayFor(modelItem => item.Congregation)
             </td>
             <td data-label="Conducting">
+                <h4 class="d-md-none">Conducting</h4>
                 @Html.DisplayFor(modelItem => item.Conducting)
             </td>
             <td data-label="Prayers">
+                <h4 class="d-md-none">Prayers</h4>
                 @Html.DisplayFor(modelItem => item.OpeningPrayer)
                 <br />
                 @Html.DisplayFor(modelItem => item.ClosingPrayer)
             </td>
             <td data-label="Hymns">
+                <h4 class="d-md-none">Hymns</h4>
                 @Html.DisplayFor(modelItem => item.OpeningHymn)
                 <br />
                 @Html.DisplayFor(modelItem => item.SacramentHymn)
@@ -75,6 +80,7 @@
                 @Html.DisplayFor(modelItem => item.ClosingHymn)
             </td>
             <td data-label="Speakers">
+                <h4 class="d-md-none">Speakers</h4>
                 @{
                     if (ViewData[item.Id.ToString()] != "none")
                     {
@@ -91,6 +97,7 @@
                 }
             </td>
             <td data-label="Topic"> 
+                <h4 class="d-md-none">Topic (Optional)</h4>
                 @Html.DisplayFor(modelItem => item.Topic)
             </td>
             <td>
