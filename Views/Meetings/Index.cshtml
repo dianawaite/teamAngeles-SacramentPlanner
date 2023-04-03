@@ -45,21 +45,21 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
-            <td>
+             <td data-label="Meeting Date">
                 @Html.DisplayFor(modelItem => item.MeetingDate)
+            </td data-label="Congregation">
+            <td>
+                @Html.DisplayFor(modelItem => item.Congregation)
             </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Congregation)
-                </td>
-                <td>
+            <td data-label="Conducting">
                 @Html.DisplayFor(modelItem => item.Conducting)
             </td>
-            <td>
+            <td data-label="Prayers">
                 @Html.DisplayFor(modelItem => item.OpeningPrayer)
                 <br />
                 @Html.DisplayFor(modelItem => item.ClosingPrayer)
             </td>
-            <td>
+            <td data-label="Hymns">
                 @Html.DisplayFor(modelItem => item.OpeningHymn)
                 <br />
                 @Html.DisplayFor(modelItem => item.SacramentHymn)
@@ -74,7 +74,8 @@
                 }
                 @Html.DisplayFor(modelItem => item.ClosingHymn)
             </td>
-            <td>@{
+            <td data-label="Speakers">
+                @{
                     if (ViewData[item.Id.ToString()] != "none")
                     {
                         foreach (var speaker in ViewData[item.Id.ToString()] as IEnumerable<SacramentPlanner.Models.Speaker>)
@@ -89,10 +90,10 @@
                     }
                 }
             </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Topic)
-                </td>
-                <td>
+            <td data-label="Topic"> 
+                @Html.DisplayFor(modelItem => item.Topic)
+            </td>
+            <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>

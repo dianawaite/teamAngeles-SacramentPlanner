@@ -6,8 +6,7 @@
 
 <h1>Meeting Details</h1>
 
-<hr />
-<a id="printButton">Print</a>
+<a id="printButton" class="btn btn-primary float-end me-2 mt-2">Print</a>
 
 <div class="p-5 block" style="border: 1px black solid;">
     <div class="row mb-md-4">
@@ -15,6 +14,7 @@
             <h2>
                 @Html.DisplayFor(model => model.Congregation)
             </h2>
+            
         </div>
     </div>
     <div class="row mb-md-4">
@@ -36,17 +36,17 @@
     </div>
 
     <div class="row mb-md-4">
-        <div class="col-md-4 d-flex justify-content-end">
+        <div class="col-md-4 d-flex justify-content-md-end">
             @Html.DisplayNameFor(model => model.Conducting)
         </div>
         <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
-        <div class="col-md-4 ps-md-3">
+        <div class="col-md-4 ps-md-3 justify-content-end justify-content-md-start">
             @Html.DisplayFor(model => model.Conducting)
         </div>
     </div>
 
     <div class="row mb-md-4">
-        <div class="col-md-4 d-flex justify-content-end">
+        <div class="col-md-4 d-flex justify-content-md-end">
             @Html.DisplayNameFor(model => model.OpeningHymn)
         </div>
         <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
@@ -56,7 +56,7 @@
     </div>
 
     <div class="row mb-md-4">
-        <div class="col-md-4 d-flex justify-content-end">
+        <div class="col-md-4 d-flex justify-content-md-end">
             @Html.DisplayNameFor(model => model.OpeningPrayer)
         </div>
         <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
@@ -81,7 +81,7 @@
     </div-->
 
     <div class="row mb-md-4">
-        <div class="col-md-4 d-flex justify-content-end">
+        <div class="col-md-4 d-flex justify-content-md-end">
             @Html.DisplayNameFor(model => model.SacramentHymn)
         </div>
         <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
@@ -91,7 +91,7 @@
     </div>
 
     <div class="row mb-md-4">
-        <div class="col-md-4 d-flex justify-content-end">
+        <div class="col-md-4 d-flex justify-content-md-end">
             Speakers
         </div>
         <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
@@ -114,7 +114,7 @@
     </div>
 
     <div class="row mb-md-4">
-        <div class="col-md-4 d-flex justify-content-end">
+        <div class="col-md-4 d-flex justify-content-md-end">
             @Html.DisplayNameFor(model => model.ClosingHymn)
         </div>
         <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
@@ -124,7 +124,7 @@
     </div>
 
     <div class="row mb-md-4">
-        <div class="col-md-4 d-flex justify-content-end">
+        <div class="col-md-4 d-flex justify-content-md-end">
             @Html.DisplayNameFor(model => model.ClosingPrayer)
         </div>
         <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
@@ -147,10 +147,6 @@
     <script>
     $("#printButton").click(function () {
         window.print();
-        /*
-        window.open("@Url.Action("Details", "Meetings", "2008")", "_blank",
-            "menubar=no, toolbar=no, resizable=no, top=100, left=200, width=500, height=500");
-        */
     });
     </script>
 }
