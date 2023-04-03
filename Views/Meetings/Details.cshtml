@@ -7,13 +7,14 @@
 <h1>Meeting Details</h1>
 
 <hr />
+<a id="printButton">Print</a>
 
 <div class="p-5 block" style="border: 1px black solid;">
     <div class="row mb-md-4">
         <div class="col-md-12 d-flex justify-content-center">
-            <h1>
+            <h2>
                 @Html.DisplayFor(model => model.Congregation)
-            </h1>
+            </h2>
         </div>
     </div>
     <div class="row mb-md-4">
@@ -92,7 +93,7 @@
         <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
         <div class="col-md-4 ps-md-3">
             @{
-                if (ViewData.Count() > 1)
+                if (ViewData["Speakers"] != "none")
                 {
                     foreach (var item in ViewData["Speakers"] as IEnumerable<SacramentPlanner.Models.Speaker>)
                     {
@@ -102,7 +103,7 @@
                 }
                 else
                 {
-                    <div>No speakers have been selected for todays meeting.</div>    
+                    <div>No assigned speakers</div>    
                 }
             }
         </div>
@@ -130,9 +131,22 @@
 
 </div>
 
-<div class="row mt-5">
+<div class="row mt-5 controls">
     <div class="form-group d-flex justify-content-center align-content-center">
         <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary me-3">Edit</a>
         <a asp-action="Index" class="pt-1">Back to List</a>
     </div>
 </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+    $("#printButton").click(function () {
+        window.print();
+        /*
+        window.open("@Url.Action("Details", "Meetings", "2008")", "_blank",
+            "menubar=no, toolbar=no, resizable=no, top=100, left=200, width=500, height=500");
+        */
+    });
+    </script>
+}

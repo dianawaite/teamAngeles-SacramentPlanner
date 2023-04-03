@@ -12403,3 +12403,15 @@ textarea.form-control-lg {
     text-decoration: none;
     float: right;
 }
+
+header {
+    display: none;
+}
+
+footer {
+    visibility: hidden;
+}
+
+h1, hr, .controls, #printButton {
+    visibility: hidden;
+}

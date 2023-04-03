@@ -55,7 +55,13 @@ namespace SacramentPlanner.Controllers
                                        .ToList();
 
             // https://www.tutorialsteacher.com/mvc/viewbag-in-asp.net-mvc
-            ViewData["Speakers"] = speakers;
+            if (speakers.Count == 0)
+            {
+                ViewData["Speakers"] = "none";
+            }
+            else {
+                ViewData["Speakers"] = speakers;
+            }
 
             return View(meeting);
         }
@@ -196,7 +202,14 @@ namespace SacramentPlanner.Controllers
                                        .ToList();
 
             // https://www.tutorialsteacher.com/mvc/viewbag-in-asp.net-mvc
-            ViewData["Speakers"] = speakers;
+            if (speakers.Count == 0)
+            {
+                ViewData["Speakers"] = "none";
+            }
+            else
+            {
+                ViewData["Speakers"] = speakers;
+            }
 
             return View(meeting);
         }

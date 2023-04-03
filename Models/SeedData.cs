@@ -145,9 +145,10 @@ public static class SeedData
             {
                 // return;   // DB has been seeded
 
-                Meeting meeting = new Meeting
+                // add first meeting
+                Meeting meeting1 = new Meeting
                 {
-                    Congregation = "BYU-I Ward",
+                    Congregation = "BYU-Idaho Ward",
                     MeetingDate = DateTime.Parse("2023-4-16"),
                     Conducting = "Henry B. Eyring",
                     OpeningPrayer = "Kristen Glenn",
@@ -159,10 +160,10 @@ public static class SeedData
                 };
 
                 context.Meeting.AddRange(
-                    meeting
+                    meeting1
                 );
                 context.SaveChanges();
-                int meeting_id = meeting.Id;
+                int meeting_id = meeting1.Id;
 
                 // add meeting speakers
                 context.Speaker.AddRange(
@@ -180,6 +181,27 @@ public static class SeedData
                     }
                 );
                 context.SaveChanges();
+
+                // second meeting
+                Meeting meeting2 = new Meeting
+                {
+                    Congregation = "BYU-Hawaii Branch",
+                    MeetingDate = DateTime.Parse("2023-8-27"),
+                    Conducting = "Dallen H. Oaks",
+                    OpeningPrayer = "Jason Williams",
+                    ClosingPrayer = "Anna Durfee",
+                    OpeningHymn = "Secret Prayer",
+                    SacramentHymn = "While of These Emblems We Partake",
+                    ClosingHymn = "Away in a Manger",
+                    Topic = "Charity"
+                };
+
+                context.Meeting.AddRange(
+                    meeting2
+                );
+                context.SaveChanges();
+
+                // this meeting has no speakers
             }
         }
     }
