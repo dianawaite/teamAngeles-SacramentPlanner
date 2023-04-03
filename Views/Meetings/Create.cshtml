@@ -106,7 +106,10 @@
                 <legend>Program</legend>
                 <div class="form-group px-2">
                     <label asp-for="Topic" class="control-label"></label>
-                    <input asp-for="Topic" class="form-control" />
+                    <select class="form-select" asp-for="Topic">
+                        <option value=""></option>
+                        <partial name="_Topic" model="@ViewData["Topics"]" />
+                    </select>
                     <span asp-validation-for="Topic" class="text-danger"></span>
                 </div>
                 <div class="form-group px-2 speakers">
