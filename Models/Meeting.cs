@@ -7,14 +7,13 @@ namespace SacramentPlanner.Models
     {
         public int Id { get; set; }
         [Required]
-        //[RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
         public string? Congregation { get; set; }
         [DataType(DataType.Date)]
 
         [Display(Name = "Meeting Date")]
         public DateTime MeetingDate { get; set; }
         [Required]
-        //[StringLength(60, MinimumLength = 3)]
         public string? Conducting { get; set; }
         [Required]
 
